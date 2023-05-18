@@ -19,13 +19,13 @@ public class CreateUser {
             .log(LogDetail.ALL)
             .build();
 
-    public static void CreateNewUser(RegistrationInfo info) {
+    public static void createNewUser(RegistrationInfo info) {
         given() // "дано"
-                .spec(requestSpec) // указываем, какую спецификацию используем
-                .body(info) // передаём в теле объект, который будет преобразован в JSON
-                .when() // "когда"
-                .post("/api/system/users") // на какой путь относительно BaseUri отправляем запрос
-                .then() // "тогда ожидаем"
-                .statusCode(200); // код 200 OK
+                .spec(requestSpec)
+                .body(info)
+                .when()
+                .post("/api/system/users")
+                .then()
+                .statusCode(200);
     }
 }
