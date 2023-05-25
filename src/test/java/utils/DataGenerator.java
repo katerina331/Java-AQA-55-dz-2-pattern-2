@@ -14,10 +14,5 @@ public class DataGenerator {
             Faker faker = new Faker(new Locale(locale));
             return new RegistrationInfo(faker.name().lastName(), faker.internet().password(), status);
         }
-
-        public static RegistrationInfo generationInfoUnVol(String status, String locale) {
-            Faker faker = new Faker(new Locale(locale));
-            return new RegistrationInfo(faker.name().lastName(), faker.internet().password(), status);
-        }
     }
 }

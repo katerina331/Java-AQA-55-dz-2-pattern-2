@@ -24,8 +24,8 @@ public class LoginTest {
         $("[data-test-id=login] input").setValue(info.getLogin());
         $("[data-test-id=password] input").setValue(info.getPassword());
         $("[data-test-id=action-login]").click();
-        $(".App_appContainer__3jRx1").shouldHave(Condition.text("Личный кабинет"));
-        $(".App_appContainer__3jRx1 .icon_theme_alfa-on-white").shouldHave(Condition.visible);
+        $("h2.heading").shouldHave(Condition.text("Личный кабинет"));
+        $("h2.heading").shouldHave(Condition.visible);
     }
 
     @Test
@@ -45,8 +45,8 @@ public class LoginTest {
         $("[data-test-id=login] input").setValue(info.getLogin());
         $("[data-test-id=password] input").setValue(info.getPassword());
         $("[data-test-id=action-login]").click();
-        $(".App_appContainer__3jRx1").shouldHave(Condition.text("Личный кабинет"));
-        $(".App_appContainer__3jRx1 .icon_theme_alfa-on-white").shouldHave(Condition.visible);
+        $("h2.heading").shouldHave(Condition.text("Личный кабинет"));
+        $("h2.heading").shouldHave(Condition.visible);
     }
 
     @Test
@@ -73,7 +73,7 @@ public class LoginTest {
     void shouldTestBadLogin() {
         RegistrationInfo info = DataGenerator.Registration.generationInfoVol("active", "ru");
         CreateUser.createNewUser(info);
-        $("[data-test-id=login] input").setValue(DataGenerator.Registration.generationInfoUnVol("active", "ru").getLogin());
+        $("[data-test-id=login] input").setValue(DataGenerator.Registration.generationInfoVol("active", "ru").getLogin());
         $("[data-test-id=password] input").setValue(info.getPassword());
         $("[data-test-id=action-login]").click();
         $("[data-test-id=error-notification]").shouldHave(Condition.text("Неверно указан логин или пароль")).shouldHave(Condition.visible);
@@ -84,7 +84,7 @@ public class LoginTest {
         RegistrationInfo info = DataGenerator.Registration.generationInfoVol("active", "ru");
         CreateUser.createNewUser(info);
         $("[data-test-id=login] input").setValue(info.getLogin());
-        $("[data-test-id=password] input").setValue(DataGenerator.Registration.generationInfoUnVol("active", "ru").getPassword());
+        $("[data-test-id=password] input").setValue(DataGenerator.Registration.generationInfoVol("active", "ru").getPassword());
         $("[data-test-id=action-login]").click();
         $("[data-test-id=error-notification]").shouldHave(Condition.text("Неверно указан логин или пароль")).shouldHave(Condition.visible);
     }
